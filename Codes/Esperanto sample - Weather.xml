@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Contracts name="Weather" version="6.0">
+  <Types>
+    <Type name="WeatherDay">
+      <Field name="Day" type="DayOfTheWeek" />
+      <Field name="WindSpeed" type="float" />
+      <Field name="AvgTemp" type="float" />
+      <Field name="Outlook" type="Outlook" />
+      <Field name="Certainty" type="decimal" />
+    </Type>
+    <Type name="WeatherForecast">
+      <Field name="Ahead" type="WeatherDay[]" />
+    </Type>
+  </Types>
+  <Enums>
+    <Enum name="Outlook">
+      <Value name="Sunny" />
+      <Value name="Cloudy" />
+      <Value name="Rain" />
+      <Value name="Snow" />
+    </Enum>
+    <Enum name="DayOfTheWeek">
+      <Value name="Monday" />
+      <Value name="Tuesday" />
+      <Value name="Wednesday" />
+      <Value name="Thursday" />
+      <Value name="Friday" />
+    </Enum>
+  </Enums>
+  <Services>
+    <RequestResponse name="GetNow" responseType="WeatherDay" />
+    <RequestResponse name="GetForecast" responseType="WeatherForecast" />
+    <RequestStream name="GetUpdates" responseType="WeatherDay" />
+    <RequestReplicatedSet name="GetStreamingForecast" responseType="WeatherDay" cacheable="false" />
+  </Services>
+</Contracts>
