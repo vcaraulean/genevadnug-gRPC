@@ -11,7 +11,6 @@ namespace Server
 
         static async Task Main(string[] args)
         {
-            
             var server = new Grpc.Core.Server
             {
                 Services = { GreeterService.BindService(new GreeterServiceImplementation()) },

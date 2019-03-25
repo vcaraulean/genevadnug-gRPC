@@ -28,7 +28,6 @@
     </Enum>
   </Enums>
   <Services>
-    <RequestResponse name="GetNow" responseType="WeatherDay" />
     <RequestResponse name="GetForecast" responseType="WeatherForecast" />
     <RequestStream name="GetUpdates" responseType="WeatherDay" />
     <RequestReplicatedSet name="GetStreamingForecast" responseType="WeatherDay" cacheable="false" />
