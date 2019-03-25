@@ -4,16 +4,39 @@
     <title>gRPC: Remote Procedure Calls for Modern Services</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style type="text/css">
-      /* @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic); */
 
       body { font-family: 'Calibri'; }
       h1, h2, h3 {
         font-family: 'Calibri';
-        font-weight: lighter;
+        font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Consolas'; }
+      .margin-top-50px { margin-top: 50px }
+      .margin-top-100px { margin-top: 100px }
+      
+      html {
+        font-size: 12px;
+      }
+
+      .remark-slide-content h1 {
+        font-size: 3rem;
+      }
+      .remark-slide-content h2 {
+        font-size: 2.75rem;
+      }
+      .remark-slide-content h3 {
+        font-size: 2.5rem;
+      }
+      /* .remark-slide-content pre,
+      .remark-slide-content code,
+      .remark-slide-content kbd,
+      .remark-slide-content tt,
+      .remark-slide-content samp {
+        font-size: 1.2rem;
+        line-height: 1.2;
+      } */
+
+
     </style>
   </head>
   <body>
@@ -21,7 +44,8 @@
     </script>
     <script type="text/javascript">
         var slideshow = remark.create({
-            sourceUrl: 'Presentation.md'
+            sourceUrl: 'Presentation.md',
+            countIncrementalSlides: false
         });
     </script>
   </body>

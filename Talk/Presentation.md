@@ -1,23 +1,24 @@
 
-class: center, middle
+class: center, middle, hero
 
 # gRPC
 
-### Remote Procedure Calls for Modern Services
+## Remote Procedure Calls for Modern Services
 
 Valeriu Caraulean 
 
-@vcaraulean valeriu@caraulean.com
+[@vcaraulean]() | [valeriu@caraulean.com]()
 
 ---
-
 # Agenda
 
-Talk, Code, Demos
+.center.margin-top-100px[![gRPC](Assets/gRPC logo.png)]
+
+.center.margin-top-100px[Talk, Code, Demos]
 
 ---
 
-## Remote Procedure Calls
+# Remote Procedure Calls
 
 It's a *very* old concept. 
 
@@ -42,7 +43,7 @@ Mostly TCP based, often platform specific
 
 ???
 
-### SOAP
+# SOAP
 
 [SOAP](https://en.wikipedia.org/wiki/SOAP) (abbreviation for Simple Object Access Protocol) is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks. Its purpose is to provide extensibility, neutrality and independence. It uses XML Information Set for its message format, and relies on application layer protocols, most often Hypertext Transfer Protocol (HTTP) or Simple Mail Transfer Protocol (SMTP), for message negotiation and transmission.
 
@@ -58,7 +59,7 @@ SOAP evolved as a successor of XML-RPC
 
 ---
 
-## Remote Procedure Calls - new challenges
+# Remote Procedure Calls - new challenges
 
 ... then **cloud** happened, with a new set of requirements:
  - Interoperability
@@ -78,7 +79,7 @@ New breed of RPC frameworks
 
 ---
 
-## HTTP & REST APIs
+# HTTP & REST APIs
 
 Now it's a default choice
  - Web is built around HTTP & REST
@@ -103,7 +104,7 @@ Swagger should be mentioned as a way to document & publish API.
 
 ---
 
-### gRPC: Motivation and Design Principles
+# gRPC: Motivation and Design Principles
 
 General-purpose, uniform and cross-platform RPC infrastructure
 
@@ -120,7 +121,7 @@ And some more at https://grpc.io/blog/principles
 
 ---
 
-### gRPC: How Does It Work?
+# gRPC: How Does It Work?
 
 A high level **service definition** to describe the API using Protocol Buffers
 
@@ -146,13 +147,13 @@ Efficiency in serialization with `protobuf` and connection with **HTTP/2**
 
 ---
 
-### Protocol Buffers, gRPC's IDL
+# Protocol Buffers, gRPC's IDL
 
 Language-neutral, platform-neutral, extensible mechanism for describing service interactions and serializing structured data
 
 --
 
-```
+```protobuf
 syntax = "proto3";
 
 message Person {
@@ -177,7 +178,7 @@ message Person {
 
 ---
 
-### gRPC Development Flow
+# gRPC Development Flow
 
 1. Define services using IDL
 
@@ -194,11 +195,11 @@ message Person {
 
 ---
 
-### Let's create a service! (1)
+# Let's create a service! (1)
 
 Service definition:
 
-```
+```protobuf
 syntax = "proto3";
 
 package SimpleRequestResponse;
@@ -218,7 +219,7 @@ service GreeterService {
 
 ---
 
-### Let's create a service! (2)
+# Let's create a service! (2)
 
 Generating server side code
 
@@ -240,7 +241,7 @@ Generating server side code
 
 ---
 
-### Let's create a service! (3) <small>Server implementation</small>
+# Let's create a service! (3) <small>Server implementation</small>
 
 ```csharp
 public class GreeterServiceImplementation : GreeterService.GreeterServiceBase
@@ -271,7 +272,7 @@ await server.ShutdownAsync();
 
 ---
 
-### Let's create a service! (3) <small>Generating client code</small>
+# Let's create a service! (3) <small>Generating client code</small>
 
 ```xml
   <ItemGroup>
@@ -290,7 +291,7 @@ await server.ShutdownAsync();
 
 ---
 
-### Let's create a service! (3) <small>Calling the server</small>
+# Let's create a service! (3) <small>Calling the server</small>
 
 ```csharp
 var channel = new Channel("localhost:5000", ChannelCredentials.Insecure);
@@ -306,9 +307,9 @@ await channel.ShutdownAsync();
 
 class: center, middle
 
-## DEMO 1
+# DEMO 1
 
-### ...to prove that it actually works
+## ...to prove that it actually works
 
 ???
 
@@ -319,15 +320,15 @@ Show in Visual Studio:
 
 ---
 
-### TODO: Languages & Platforms
+# TODO: Languages & Platforms
 
 ---
 
-### TODO: HTTP/2
+# TODO: HTTP/2
 
 ---
 
-### gRPC Communication Styles
+# gRPC Communication Styles
 
 - Unary request/response
 - Server-side streaming
@@ -335,7 +336,7 @@ Show in Visual Studio:
 - Bi-directional streaming
 
 
-```
+```protobuf
 service Examples {
 
   // Unary request/response
@@ -357,7 +358,7 @@ https://grpc.io/docs/guides/concepts.html#rpc-life-cycle
 
 ---
 
-### gRPC Status codes and Error Handling
+# gRPC Status codes and Error Handling
 
 - HTTP status code `200` (unless cannot reach the server)
 - gRPC header `grpc-status` 
@@ -382,13 +383,13 @@ Errors are surfaced in .NET as `RpcException`
 
 class: center, middle
 
-## DEMO 2
+# DEMO 2
 
-### Bi-directional streaming
+## Bi-directional streaming
 
 ---
 
-### gRPC & ASP .NET Core
+# gRPC & ASP .NET Core
 
 **It's a work in progress**
 
@@ -405,7 +406,7 @@ Follow the development: https://github.com/grpc/grpc-dotnet
 
 ---
 
-### gRPC on the battlefield
+# gRPC on the battlefield
 
 Extensibility mechanisms enable integration with applications & system used to support real life use
 
@@ -415,7 +416,7 @@ Extensibility mechanisms enable integration with applications & system used to s
 
 ---
 
-### Real World Use: Customizations (1)
+# Real World Use: Customizations (1)
 
 A layer on top of gRPC, called `Esperanto`
 
@@ -436,7 +437,7 @@ The flow:
 
 ---
 
-### Real World Use: Customizations (2)
+# Real World Use: Customizations (2)
 
 Custom code-gen pipeline & service hosting facilities
   - Multiple clients (.NET, TypeScript) and platform specific packages (nuget, npm)
