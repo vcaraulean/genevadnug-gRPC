@@ -405,6 +405,15 @@ Follow the development: https://github.com/grpc/grpc-dotnet
 
 ---
 
+### gRPC in Cloud and on premises
+
+Ready to use tools and integrations 
+- Load balancing & proxying: Envoy, NGINX, grpclb
+- Monitoring and tracing: Prometheus, OpenTracing
+- Health checking: Consul, Kubernetes
+
+---
+
 ### Real World Use: Customizations (1)
 
 A layer on top of gRPC, called `Esperanto`
