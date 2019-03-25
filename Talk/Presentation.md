@@ -405,9 +405,10 @@ Follow the development: https://github.com/grpc/grpc-dotnet
 
 ---
 
-### gRPC in Cloud and on premises
+### gRPC on the battlefield
 
-Ready to use tools and integrations 
+Extensibility mechanisms enable integration with applications & system used to support real life use
+
 - Load balancing & proxying: Envoy, NGINX, grpclb
 - Monitoring and tracing: Prometheus, OpenTracing
 - Health checking: Consul, Kubernetes
