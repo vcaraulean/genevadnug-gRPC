@@ -560,5 +560,7 @@ class: center, middle
 
 - https://grpc.io/
 - https://grpc.io/docs/quickstart/csharp.html
+- https://grpc.io/blog
 - https://github.com/grpc/grpc-dotnet
 
+Source code and this talk's content: https://github.com/vcaraulean/genevadnug-gRPC
