@@ -360,7 +360,21 @@ Interesting fact:
 
 ---
 
-# TODO: HTTP/2
+# HTTP/2
+
+Came around same time as gRPC (~2015). Not a coincidence...
+
+- Connection multiplexing
+ - one connection for multiple calls
+ - no head-of-line blocking (slow vs fast requests)
+- Header compression
+ - indexing previously seen headers
+ - send only index when seen already
+ - values are compressed (Huffman coding)
+- flow-control and bi-directional streaming
+ - back-pressure to avoid "flooding" slow clients
+ - fits into "reactive streams" model
+ - easily wrapped up by "Reactive eXtensions" libraries
 
 ---
 
@@ -424,6 +438,42 @@ class: center, middle
 
 ---
 
+# gRPC in the real world
+
+Extensibility mechanisms enable integration with applications & systems used to support real life use
+
+- Load balancing & proxying: Envoy, NGINX, grpclb
+- Monitoring and tracing: Prometheus, OpenTracing
+- Health checking: Consul, Kubernetes
+
+???
+
+How health checking works:
+ - common contract
+ - implementations in many languages
+ - server simply adds another endpoint to the host
+
+https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+
+Server Reflection, same principle
+
+---
+
+# Extensibility mechanisms
+
+- Service composability
+- Metadata
+- Interceptors
+
+---
+class: center, middle
+
+# DEMO 3
+
+## Extensibility
+
+---
+
 # gRPC & ASP .NET Core
 
 **It's a work in progress**
@@ -441,27 +491,6 @@ Follow the development: https://github.com/grpc/grpc-dotnet
 
 ---
 
-# gRPC in the real world
-
-Extensibility mechanisms enable integration with applications & systems used to support real life use
-
-- Load balancing & proxying: Envoy, NGINX, grpclb
-- Monitoring and tracing: Prometheus, OpenTracing
-- Health checking: Consul, Kubernetes
-
----
-
-???
-
-How health checking works:
- - common contract
- - implementations in many languages
- - server simply adds another endpoint to the host
-
-https://github.com/grpc/grpc/blob/master/doc/health-checking.md
-
-Server Reflection, same principle
-
 # Real World Use: Customizations (1)
 
 A layer on top of gRPC, called `Esperanto`
@@ -469,7 +498,7 @@ A layer on top of gRPC, called `Esperanto`
 Service and DTO definitions in XML:
   * More validation rules
   * Semantic versioning
-  * Transport agnostic
+  * Communication framework agnostic
 
 --
 
